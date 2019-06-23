@@ -4,5 +4,6 @@ cd ../
 echo Stopping tf-container if it exists
 docker stop tf-container
 docker run --name=tf-container --rm -d -p 8888:8888 tf
-sleep 2
-docker logs tf-container
+sleep 4
+URL=`docker logs tf-container 2>&1 | grep 'http://.*127.0.0.1.*token' | grep -v NotebookApp | sed 's/.*8888\(.*\)/http:\/\/127.0.0.1:8888\1/'`
+open -a "Google Chrome" "$URL"
