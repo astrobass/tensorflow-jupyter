@@ -8,4 +8,4 @@ docker stop tf-container
 docker run --name=tf-container --rm -d -p 8888:8888 tf
 
 echo Password is root
-open -a "Google Chrome" "http://127.0.0.1:8888"
+open -a "Google Chrome" "http://127.0.0.1:8888/notebooks/object_detection_tutorial.ipynb"

@@ -12,7 +12,6 @@ RUN apt-get install -y git protobuf-compiler
 
 RUN git clone https://github.com/tensorflow/models.git /tensorflow/models
 
-#WORKDIR /app
 WORKDIR /tensorflow/models/research
 
 RUN protoc object_detection/protos/*.proto --python_out=.
