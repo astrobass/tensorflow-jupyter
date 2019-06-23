@@ -1,5 +1,8 @@
 #!/bin/sh
 
 cd ../
-#docker run -u $(id -u):$(id -g) --rm -it -p 6006:6006 -p 8888:8888 tf
-docker run --rm -it -p 8888:8888 tf
+echo Stopping tf-container if it exists
+docker stop tf-container
+docker run --name=tf-container --rm -d -p 8888:8888 tf
+sleep 2
+docker logs tf-container
